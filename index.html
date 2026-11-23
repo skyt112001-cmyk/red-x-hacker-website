@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090609">
+  <meta name="description" content="RED X HACKER — gaming community, updates, guides and support.">
+  <title>RED X HACKER | Gaming Community</title>
+  <style>
+    :root {
+      --bg:#080609; --panel:#120b10; --red:#ff1744; --red2:#ff4969;
+      --text:#f8f3f5; --muted:#b9aeb4; --line:rgba(255,55,91,.24);
+      --glow:0 0 28px rgba(255,23,68,.24);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse at 78% 18%,rgba(120,0,28,.2),transparent 34%),radial-gradient(ellipse at 10% 70%,rgba(100,0,25,.13),transparent 30%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(8,6,9,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.08em}
+    .brand-mark{width:42px;height:42px;border:1px solid #ff315b;border-radius:13px;display:grid;place-items:center;color:#fff;font-weight:1000;font-size:19px;background:linear-gradient(145deg,#2a0a14,#090609);box-shadow:var(--glow);position:relative}
+    .brand-mark:after{content:"";position:absolute;inset:4px;border:1px solid rgba(255,65,100,.35);border-radius:9px}
+    .brand span:last-child{font-size:14px}.brand b{color:var(--red)}
+    .navlinks{display:flex;align-items:center;gap:26px;color:#d7cbd0;font-size:13px}
+    .navlinks a:hover{color:#fff}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 21px;border-radius:999px;background:linear-gradient(110deg,#ff1744,#c90032);border:1px solid #ff7189;color:white;font-weight:850;font-size:13px;letter-spacing:.04em;box-shadow:0 0 24px rgba(255,23,68,.28);transition:.25s;cursor:pointer}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 0 34px rgba(255,23,68,.48)}
+    .btn.secondary{background:rgba(255,255,255,.035);border:1px solid var(--line);box-shadow:none}
+    .hero{padding:76px 0 62px;text-align:center;position:relative}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:9px 15px;border:1px solid var(--line);border-radius:999px;color:#ff8197;font-size:11px;letter-spacing:.2em;text-transform:uppercase;background:rgba(255,23,68,.055)}
+    .pulse{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);animation:pulse 1.5s infinite}
+    .logo-orbit{width:min(310px,75vw);height:min(310px,75vw);margin:34px auto 25px;border-radius:32%;display:grid;place-items:center;position:relative;background:linear-gradient(145deg,#1b0b12,#080609 62%);border:1px solid rgba(255,67,100,.45);box-shadow:0 0 0 10px rgba(255,23,68,.035),0 0 65px rgba(255,23,68,.18),inset 0 0 38px rgba(255,23,68,.13);animation:float 5s ease-in-out infinite}
+    .logo-orbit:before,.logo-orbit:after{content:"";position:absolute;inset:-13px;border:1px solid rgba(255,36,77,.48);border-radius:35%;transform:rotate(8deg);z-index:-1}
+    .logo-orbit:after{inset:-23px;border-color:rgba(255,36,77,.17);transform:rotate(-9deg)}
+    .logo-inner{text-align:center}
+    .logo-x{font-size:104px;line-height:.9;font-weight:1000;letter-spacing:-.12em;color:#fff;text-shadow:4px 4px 0 #a9002c,0 0 28px rgba(255,23,68,.75);padding-right:13px}
+    .logo-name{font-size:21px;font-weight:1000;letter-spacing:.28em;color:#ff4267;margin-top:14px}
+    .hero h1{font-size:clamp(42px,8vw,82px);line-height:.98;letter-spacing:-.065em;margin:20px 0 16px;font-weight:1000}
+    .hero h1 span{display:block;color:var(--red);text-shadow:0 0 32px rgba(255,23,68,.24)}
+    .lead{max-width:720px;margin:0 auto;color:#c7bbc1;line-height:1.8;font-size:15px}
+    .hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:29px}
+    .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:650px;margin:52px auto 0}
+    .stat{padding:18px 10px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,23,68,.025))}
+    .stat strong{display:block;font-size:27px;color:#ff476a;font-weight:950}
+    .stat small{display:block;margin-top:5px;color:#a99ba2;letter-spacing:.16em;font-size:10px}
+    section{padding:62px 0}
+    .section-head{text-align:center;margin-bottom:30px}
+    .section-head .kicker{color:#ff5b79;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800}
+    .section-head h2{font-size:clamp(29px,5vw,43px);letter-spacing:-.045em;margin:10px 0}
+    .section-head p{color:var(--muted);margin:0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{padding:25px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(28,13,20,.92),rgba(13,9,13,.9));transition:.25s;min-height:205px}
+    .card:hover{transform:translateY(-5px);border-color:rgba(255,65,100,.65);box-shadow:var(--glow)}
+    .icon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:rgba(255,23,68,.1);border:1px solid var(--line);font-size:20px}
+    .card h3{margin:18px 0 9px;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.75}
+    .community{padding:36px;border-radius:25px;border:1px solid rgba(255,58,94,.38);background:radial-gradient(ellipse at 90% 0%,rgba(255,23,68,.17),transparent 45%),#10090e;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:var(--glow)}
+    .community h2{margin:0 0 8px;font-size:clamp(25px,4vw,36px)}
+    .community p{margin:0;color:var(--muted);line-height:1.7;font-size:14px}
+    footer{border-top:1px solid var(--line);padding:26px 0;color:#93858d;font-size:12px}
+    .footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.show{opacity:1;transform:none}
+    @keyframes pulse{50%{opacity:.35;transform:scale(.75)}}
+    @keyframes float{50%{transform:translateY(-8px)}}
+    @media(max-width:760px){.nav{height:68px}.navlinks{display:none}.hero{padding:55px 0 45px}.cards{grid-template-columns:1fr}.card{min-height:0}.community{padding:25px;display:block;text-align:center}.community .btn{margin-top:20px}.trust{margin-top:36px}.logo-x{font-size:90px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="RED X HACKER home">
+        <span class="brand-mark">RX</span><span>RED X <b>HACKER</b></span>
+      </a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#services">Services</a><a href="#about">About</a><a href="#community">Community</a>
+      </nav>
+      <a class="btn" data-link="telegram" href="#community">JOIN NOW ↗</a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero wrap">
+      <div class="eyebrow"><span class="pulse"></span> GAMING COMMUNITY • OFFICIAL UPDATES</div>
+      <div class="logo-orbit" aria-label="RED X HACKER logo">
+        <div class="logo-inner"><div class="logo-x">RX</div><div class="logo-name">RED X HACKER</div></div>
+      </div>
+      <h1>LEVEL UP YOUR <span>GAMING WORLD.</span></h1>
+      <p class="lead">Your hub for gaming news, community updates, helpful guides and player support. Join the RED X HACKER community and stay connected.</p>
+      <div class="hero-actions">
+        <a class="btn" data-link="telegram" href="#community">JOIN TELEGRAM ↗</a>
+        <a class="btn secondary" data-link="whatsapp" href="#community">CONTACT ON WHATSAPP</a>
+      </div>
+      <div class="trust">
+        <div class="stat"><strong>24/7</strong><small>COMMUNITY ACCESS</small></div>
+        <div class="stat"><strong>UPDATES</strong><small>GAMING NEWS</small></div>
+        <div class="stat"><strong>1 HUB</strong><small>ALL IN ONE PLACE</small></div>
+      </div>
+    </section>
+
+    <section id="services" class="wrap reveal">
+      <div class="section-head"><div class="kicker">WHAT WE OFFER</div><h2>Explore Our Services</h2><p>Useful resources and community support for gamers.</p></div>
+      <div class="cards">
+        <article class="card"><div class="icon">🎮</div><h3>Gaming Updates</h3><p>Stay informed with community announcements, game updates and important notices.</p></article>
+        <article class="card"><div class="icon">📘</div><h3>Guides & Tips</h3><p>Discover beginner-friendly guides, settings tips and general gameplay resources.</p></article>
+        <article class="card"><div class="icon">🛡️</div><h3>Player Support</h3><p>Connect with the community for help, questions and support-related information.</p></article>
+      </div>
+    </section>
+
+    <section id="about" class="wrap reveal">
+      <div class="section-head"><div class="kicker">ABOUT THE COMMUNITY</div><h2>Built For The Gaming Community</h2><p>Bold design. Helpful updates. One connected community.</p></div>
+      <div class="cards">
+        <article class="card"><div class="icon">⚡</div><h3>Fast Announcements</h3><p>Important community notices and updates in one convenient place.</p></article>
+        <article class="card"><div class="icon">🌐</div><h3>Mobile Friendly</h3><p>A clean experience designed to work smoothly on phones, tablets and desktops.</p></article>
+        <article class="card"><div class="icon">❤️</div><h3>Community First</h3><p>Stay connected, share feedback and keep up with the latest posts.</p></article>
+      </div>
+    </section>
+
+    <section id="community" class="wrap reveal">
+      <div class="community">
+        <div><h2>JOIN THE RED X COMMUNITY</h2><p>Get updates and connect with us through our official channels.</p></div>
+        <a class="btn" data-link="telegram" href="#">JOIN TELEGRAM NOW ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-row"><span>© <span id="year"></span> RED X HACKER. All rights reserved.</span><span>Independent gaming community. Not affiliated with any game publisher.</span></div></footer>
+
+  <script>
+    /*
+      IMPORTANT: Update these two links before publishing.
+      Telegram: https://t.me/YourChannel
+      WhatsApp: https://wa.me/91XXXXXXXXXX  (country code + number, digits only)
+    */
+    const SITE_CONFIG = {
+      telegram: "https://t.me/freeesphacks1",
+      whatsapp: "https://wa.me/919661693448"
+    };
+
+    document.querySelectorAll('[data-link="telegram"]').forEach(a => a.href = SITE_CONFIG.telegram);
+    document.querySelectorAll('[data-link="whatsapp"]').forEach(a => a.href = SITE_CONFIG.whatsapp);
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
